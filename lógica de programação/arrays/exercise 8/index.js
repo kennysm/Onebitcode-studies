@@ -17,9 +17,11 @@ let ongoingHitchPlataform = hitchedSpaceship.findIndex(spaceship => {
 })
 
 let highLightedSpaceship = hitchedSpaceship.map(spaceship => {
-  return highLightedSpaceship[0].toUpperCase()
+  return spaceship[0].toUpperCase()
 })
 
 let message = "Espaçonaves com mais de 9 tripulantes: " + crewGreatherThan9.join(", ")
-message += "\nPlataform com processo de engate: " + (ongoingHitchPlataform + 1)
-message += "\nEspaçonaves destacadas: " + hitchedSpaceship.join(", ")
+message += "\nPlataform em processo de engate: " + (ongoingHitchPlataform + 1)
+message += "\nEspaçonaves destacadas: " + highLightedSpaceship.join(", ")
+
+alert(message)
