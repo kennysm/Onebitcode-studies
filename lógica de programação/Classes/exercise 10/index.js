@@ -21,3 +21,27 @@ function showMenu() {
   }
   return chosenOption
 }
+function printSpaceshipList(spaceship) {
+  let spaceshipList = ""
+  spaceship.forEach((spaceship, index) => {
+    spaceshipList += (index + 1) + "- " + spaceship.name +
+      "(" + spaceship.crewQuantity + "tripulantes)\n"
+  })
+  alert(spaceshipList)
+}
+
+let hitchedSpaceships = []
+let chosenOption
+
+while (chosenOption != "3") {
+  chosenOption = showMenu()
+  switch (chosenOption) {
+    case "1":
+      let spaceshipToAdd = createSpaceShip()
+      spaceshipToAdd.push(spaceshipToAdd)
+      break
+    case "2":
+      printSpaceshipList(hitchedSpaceships)
+      break
+  }
+}
