@@ -17,10 +17,18 @@ function showMenu() {
     chosenOption = prompt("O que deseja fazer?\n" +
       "1- Engatar nave\n " +
       "2- Imprimir naves\n" +
-      "3 - Sair do programa")
+      "3- Sair do programa")
   }
   return chosenOption
 }
+
+function createSpaceShip() {
+  let spaceshipName = prompt("Informe o nome da nave")
+  let crewQuantity = prompt("Informe a quantidade de tripulantes")
+  let spaceship = new Spaceship(spaceshipName, crewQuantity)
+  return spaceship
+}
+
 function printSpaceshipList(spaceship) {
   let spaceshipList = ""
   spaceship.forEach((spaceship, index) => {
@@ -38,7 +46,8 @@ while (chosenOption != "3") {
   switch (chosenOption) {
     case "1":
       let spaceshipToAdd = createSpaceShip()
-      spaceshipToAdd.push(spaceshipToAdd)
+      spaceshipToAdd.hitch()
+      hitchedSpaceships.push(spaceshipToAdd)
       break
     case "2":
       printSpaceshipList(hitchedSpaceships)
