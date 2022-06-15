@@ -1,0 +1,27 @@
+{
+  "name": "npm_class",
+  "version": "1.0.0",
+  "description": "Aula para estudar npm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kennysm/Onebitcode-studies.git"
+  },
+  "keywords": [
+    "npm",
+    "class",
+    "study"
+  ],
+  "author": "kennedy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kennysm/Onebitcode-studies/issues"
+  },
+  "homepage": "https://github.com/kennysm/Onebitcode-studies#readme",
+  "dependencies": {
+    "moment": "^2.29.3"
+  }
+}
