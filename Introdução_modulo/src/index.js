@@ -1,12 +1,12 @@
-const Planet = require('./planet')
-const solarSystem = require('./solar_system')
+let timeoutId = setTimeout(() => {
+  console.log("Executando após 2 segundos")
+}, 2000)
 
-const earth = new Planet("Terra", 50100000)
-earth.rotate()
+clearTimeout(timeoutId)
 
-solarSystem.planets.push(earth)
-solarSystem.planets.push(new Planet("Marte", 144800000))
-solarSystem.planets.push(new Planet("Mercúrio", 74800000))
-solarSystem.planets.push(new Planet("Saturno", 42700000000))
-
-console.log(solarSystem)
+let seconds = 0
+let intervalId = setInterval(() => {
+  seconds += 2
+  console.log(`Executando após  ${seconds} segundos"`)
+  if (seconds >= 10) clearInterval(intervalId)
+}, 2000)
