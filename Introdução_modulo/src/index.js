@@ -1,12 +1,13 @@
-let timeoutId = setTimeout(() => {
-  console.log("Executando após 2 segundos")
-}, 2000)
+function step02() {
+  console.log("passo 02")
+}
 
-clearTimeout(timeoutId)
+console.log("Passo 01")
+step02()
+console.log("passo 03")
 
-let seconds = 0
-let intervalId = setInterval(() => {
-  seconds += 2
-  console.log(`Executando após  ${seconds} segundos"`)
-  if (seconds >= 10) clearInterval(intervalId)
-}, 2000)
+console.log("Passo 04")
+setTimeout(() => {
+  console.log("Passo 05")
+}, 1000)
+console.log("Passo 06")
