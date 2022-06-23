@@ -1,7 +1,7 @@
 let komodoship = {
   name: "Komodo",
   velocity: 80,
-  acceleration: 10
+  acceleration: 0
 }
 const velocityAfter2Seconds = (velocity, acceleration) => {
   return new Promise(function (resolve, reject) {
@@ -20,6 +20,8 @@ const velocityAfter2Seconds = (velocity, acceleration) => {
 velocityAfter2Seconds(komodoship.velocity, komodoship.acceleration).then(velocity => {
   komodoship.velocity = velocity
   console.log("Depois de acelerar: \n", komodoship)
+}).catch(message => {
+  console.log(`komodo: ${message}`)
 })
 
 console.log("Execução ed Promises")
