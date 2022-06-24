@@ -1,28 +1,35 @@
-let komodoship = {
-  name: "Komodo",
-  velocity: 80,
-  acceleration: 0
+const spaceship = {
+  name: "Rontaro",
+  currentBateryCharge: 50,
+  consumptionPerKms: 0.00008
 }
-const velocityAfter2Seconds = (velocity, acceleration) => {
-  return new Promise(function (resolve, reject) {
-    setTimeout(() => {
-      if (acceleration > 0) {
-        velocity += acceleration * 2
-        console.log(`Nova velocidade: ${velocity}`)
-        resolve(velocity)
-      } else {
-        console.log("Aceleração inválida")
-        reject("Não possui aceleração")
-      }
-    }, 1000)
+
+const updateBateryCharge = function (chargeConsumed) {
+  return new Promise((resolve, reject) => {
+    spaceship.currentBateryCharge -= chargeConsumed
+    if (spaceship.currentBateryCharge > 0) {
+      resolve(spaceship.currentBateryCharge)
+    } else {
+      reject("Bateria esgotada! Nave será desativada em alguns segundos.")
+    }
   })
 }
-velocityAfter2Seconds(komodoship.velocity, komodoship.acceleration).then(velocity => {
-  komodoship.velocity = velocity
-  console.log("Depois de acelerar: \n", komodoship)
-}).catch(message => {
-  console.log(`komodo: ${message}`)
-})
 
-console.log("Execução ed Promises")
-console.log(komodoship)
+const calculateBateryConsumption = function (velocity, seconds) {
+  return new Promise((resolve, reject) => {
+    if (spaceship.consumptionPerKms <= 0 || velocity <= 0) {
+      reject("Nave está parada!")
+    } else {
+      let chargeConsumed = spaceship.consumptionPerKms * velocity * seconds
+      resolve(chargeConsumed)
+    }
+  })
+}
+
+calculateBateryConsumption(90, 300).then(chargeConsumed => {
+  return updateBateryCharge(chargeConsumed)
+}).then(newCharge => {
+  console.log(`Carga Atual: ${newCharge}`)
+}).catch(error => {
+  console.log(error)
+})
