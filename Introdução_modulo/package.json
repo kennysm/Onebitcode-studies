@@ -10,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "core-js": "^3.23.3",
     "moment": "^2.29.3",
+    "regenerator-runtime": "^0.13.9",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.2"
   },
